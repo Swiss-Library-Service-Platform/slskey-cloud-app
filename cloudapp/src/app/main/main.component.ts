@@ -81,7 +81,8 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   /** Calls the PURA AlephNrEntry URL to activate publishers for a specific user */
-  activateUser() {      
+  activateUser() { 
+    this.loading = true;     
     var requestUrl = "https://pura.swisscovery.network/purauser/alephnrentry/" + this.apiResult?.primary_id;
     var body = "onlyTextResponse=" + true;
     this.http.post<any>(requestUrl, body, this.httpOptions)

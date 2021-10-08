@@ -36,4 +36,8 @@ table {
   td {
     padding: 0 20px;
   }
+  td , th {
+    white-space: nowrap;
+    word-wrap: break-word;
+  }
 }
