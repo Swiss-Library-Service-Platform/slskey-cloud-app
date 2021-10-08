@@ -42,16 +42,17 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.pageLoad$ = this.eventsService.onPageLoad(this.onPageLoad);
     this.eventsService.getAuthToken()
-      .subscribe(authToken => this.authToken = authToken);
-    this.httpOptions = {
-        headers: new HttpHeaders({
-          'Accept': 'text/plain',
-          'Content-Type':  'application/x-www-form-urlencoded',
-          'Authorization': `Bearer ${this.authToken}`
-        }), 
-        responseType: "text" as 'json',
-        withCredentials: true
-      };
+      .subscribe(authToken => {
+        this.httpOptions = {
+          headers: new HttpHeaders({
+            'Accept': 'text/html',
+            'Content-Type':  'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${authToken}`,
+          }), 
+          responseType: "text" as 'json',
+          withCredentials: true
+        };
+      });
   }
 
   ngOnDestroy(): void {
@@ -79,7 +80,7 @@ export class MainComponent implements OnInit, OnDestroy {
     this.activationDone = false;
   }
 
-  /** Calls the PURA Login URL to get a authorized session */
+  /** Calls the PURA Login URL to get an authorized session */
   loginPuraBackend() {
       var body = "onlyTextResponse=" + true;
       this.loading = true;
@@ -88,10 +89,11 @@ export class MainComponent implements OnInit, OnDestroy {
           (result) => this.activateUser(),
           (error) => {
             if (error.status == 403) {
-              this.alert.error("Wrong username/password for PURA backend");
+              this.alert.error("You don't have the permissions");
             } else {
               this.alert.error(error.message)
             }
+            this.loading = false;
           }
         );
   }
