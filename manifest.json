@@ -1,0 +1,19 @@
+{
+   "id": "pura-cloud-app",
+   "title": "PURA Cloud App",
+   "subtitle": "Private User Remote Access",
+   "author": "SLSP",
+   "pages": {
+      "help": "https://github.com/Swiss-Library-Service-Platform/pura-cloud-app"
+   },
+   "icon": {
+      "type": "font",
+      "value": "fa fa-street-view"
+   },
+   "license": "https://github.com/Swiss-Library-Service-Platform/pura-cloud-app/LICENCE",
+   "contentSecurity": {
+      "connectSrc": [
+         "https://pura.swisscovery.network/"
+      ]
+   }
+}
