@@ -100,6 +100,8 @@ export class MainComponent implements OnInit, OnDestroy {
         (error) => { 
           if (error.status == 404) {
             this.alert.error("Error: Could not find this user: " + this.apiResult?.primary_id);
+          } else if (error.status == 403) {
+            this.alert.error("You don't have permissions for the PURA service");
           } else {
             this.alert.error(error.message);
           }
