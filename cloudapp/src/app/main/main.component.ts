@@ -80,24 +80,6 @@ export class MainComponent implements OnInit, OnDestroy {
     this.activationDone = false;
   }
 
-  /** Calls the PURA Login URL to get an authorized session */
-  loginPuraBackend() {
-      var body = "onlyTextResponse=" + true;
-      this.loading = true;
-      this.http.post('https://pura.swisscovery.network/login', body, this.httpOptions)
-        .subscribe(
-          (result) => this.activateUser(),
-          (error) => {
-            if (error.status == 403) {
-              this.alert.error("You don't have the permissions");
-            } else {
-              this.alert.error(error.message)
-            }
-            this.loading = false;
-          }
-        );
-  }
-
   /** Calls the PURA AlephNrEntry URL to activate publishers for a specific user */
   activateUser() {      
     var requestUrl = "https://pura.swisscovery.network/purauser/alephnrentry/" + this.apiResult?.primary_id;
@@ -116,7 +98,7 @@ export class MainComponent implements OnInit, OnDestroy {
         (result) => {},
         (error) => { 
           if (error.status == 404) {
-            this.alert.error("Error: Could not find this user.");
+            this.alert.error("Error: Could not find this user: " + this.apiResult?.primary_id);
           } else {
             this.alert.error(error.message);
           }

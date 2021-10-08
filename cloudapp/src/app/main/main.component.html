@@ -16,7 +16,7 @@
 <ng-template #entities>
   <div class="eca-actions">
     <button mat-flat-button color="secondary" (click)="clear()" [disabled]="!selectedEntity">{{activationDone ? 'Back' : 'Cancel'}}</button>
-    <button mat-flat-button color="primary" (click)="loginPuraBackend()"
+    <button mat-flat-button color="primary" (click)="activateUser()"
       [disabled]="!apiResult || loading || activationDone">Activate Publishers
     </button>
 
