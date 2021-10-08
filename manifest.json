@@ -7,8 +7,8 @@
       "help": "https://github.com/Swiss-Library-Service-Platform/pura-cloud-app"
    },
    "icon": {
-      "type": "font",
-      "value": "fa fa-street-view"
+      "type": "url",
+      "value": "/assets/pura.png"
    },
    "license": "https://github.com/Swiss-Library-Service-Platform/pura-cloud-app/LICENCE",
    "contentSecurity": {
