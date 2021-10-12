@@ -3,7 +3,7 @@
    "title": "PURA Cloud App",
    "subtitle": "Private User Remote Access",
    "author": "Sascha Villing @ SLSP",
-   "description": "Activate users for access to PURA resources. In order to use this cloud app, your institution must have a subscription to the SLSP PURA service.",
+   "description": "Activate users for access to PURA resources. In order to use this Alma Cloud App, your institution must have a subscription to the SLSP PURA service.",
    "pages": {
       "help": "https://github.com/Swiss-Library-Service-Platform/pura-cloud-app"
    },
