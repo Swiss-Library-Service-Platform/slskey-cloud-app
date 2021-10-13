@@ -1,5 +1,5 @@
 # PURA SLSP Cloud App
-<img src=./preview/pura.png alt="drawing" width="200"/>
+<img src=./preview/pura.png alt="drawing" width="400"/>
 
 ## Overview
 
