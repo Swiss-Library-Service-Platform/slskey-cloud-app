@@ -1,20 +1,20 @@
 {
-   "id": "pura-cloud-app",
-   "title": "PURA Cloud App",
-   "subtitle": "Private User Remote Access",
-   "author": "Sascha Villing @ SLSP",
-   "description": "Activate users for access to PURA resources. In order to use this Alma Cloud App, your institution must have a subscription to the SLSP PURA service.",
+   "id": "slskey-cloud-app",
+   "title": "SLSKey",
+   "subtitle": "Cloud App for SLSKey User Management",
+   "author": "SLSP",
+   "description": "Activate users for access to SLSKey resources. In order to use this Alma Cloud App, your institution must have a subscription to the SLSP SLSKey service.",
    "pages": {
-      "help": "https://github.com/Swiss-Library-Service-Platform/pura-cloud-app"
+      "help": "https://github.com/Swiss-Library-Service-Platform/slskey-cloud-app"
    },
    "icon": {
       "type": "url",
-      "value": "/assets/pura.png"
+      "value": "/assets/logo_text.png"
    },
-   "license": "https://github.com/Swiss-Library-Service-Platform/pura-cloud-app/LICENCE",
+   "license": "https://github.com/Swiss-Library-Service-Platform/slskey-cloud-app/LICENCE",
    "contentSecurity": {
       "connectSrc": [
-         "https://pura.swisscovery.network/"
+         "https://slskey-test.swisscovery.network/"
       ]
    }
 }
