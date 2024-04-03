@@ -47,3 +47,12 @@ Please use the GitHub "Issues" of this repository to report any defects. We will
 ## Licence 
 
 [GNU Genereal Public Licence v3.0](https://github.com/Swiss-Library-Service-Platform/pura-cloud-app/blob/main/LICENCE)
+
+## Development
+
+### Common Issues 
+#### MacOS Error: OpenSSL Error 'ERR_OSSL_EVP_UNSUPPORTED'
+
+Run in Terminal: `export NODE_OPTIONS=--openssl-legacy-provider`
+
+and then run `eca start` again.
