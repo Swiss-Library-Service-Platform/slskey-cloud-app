@@ -1,5 +1,5 @@
 
-@import './app/main/main.component.theme';
+@import './app/components/main/main.component.theme';
 
 @mixin themed-styles($theme, $typography) {
     /* Include themed component mixins or theme dependent styles here */
@@ -8,4 +8,25 @@
 
 @mixin global-styles {
     /* Add global styles here */
+}
+
+
+.mat-form-field {
+    width: 100%;
+}
+
+.mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: var(--slsp-purple) !important;
+}
+
+.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: var(--slsp-purple) !important;
+}
+
+.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: var(--slsp-purple) !important;
+    ;
 }

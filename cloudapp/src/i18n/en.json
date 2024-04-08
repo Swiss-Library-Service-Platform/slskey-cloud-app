@@ -1,0 +1,30 @@
+{
+    "General": {
+        "BackToMenu": "Back",
+        "OpenInSlskey": "Open in SLSKey"
+    },
+    "ActivationInput": {
+        "Activate": "Activate User",
+        "ActivateButton": "Activate User",
+        "Remark": "Remark (optional):",
+        "Title": "Activate"
+    },
+    "ActivationPreview": {
+        "ActivationDate": "Activation",
+        "Active": "Activated",
+        "Blocked": "Blocked",
+        "ExpirationDate": "Expiration",
+        "ExpirationViaAlma": "via Alma",
+        "Inactive": "Inactive",
+        "NoStatus": "No Status",
+        "Remark": "Remark",
+        "SlskeyGroups": "SLSKey Groups",
+        "Title": "User Management"
+
+    },
+    "Main": {
+        "Title": "Select User"
+    }
+
+
+}

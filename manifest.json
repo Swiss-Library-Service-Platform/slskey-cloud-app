@@ -15,6 +15,9 @@
    "contentSecurity": {
       "connectSrc": [
          "https://slskey-test.swisscovery.network/"
-      ]
+      ],
+      "sandbox": {
+         "popups": true
+      }
    }
 }

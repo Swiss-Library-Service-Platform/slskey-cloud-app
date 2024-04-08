@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './components/main/main.component';
+import { ActivationpreviewComponent } from './components/activationpreview/activationpreview.component';
+import { ActivationinputComponent } from './components/activationinput/activationinput.component';
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
+  { path: '', redirectTo: 'root/true', pathMatch: 'full' },
+  { path: 'root/:isAutoSelect', component: MainComponent },
+  { path: 'activationpreview', component: ActivationpreviewComponent },
+  { path: 'activationinput', component: ActivationinputComponent },
 ];
 
 @NgModule({

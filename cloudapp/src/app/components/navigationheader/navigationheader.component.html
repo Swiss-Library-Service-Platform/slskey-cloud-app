@@ -1,0 +1,23 @@
+<div
+    class="slskey-header ">
+    <!-- Navigation Header -->
+    <div class="nav-header half-rounded" fxLayout="row">
+        <button *ngIf="showBackButton" class="back-button" mat-icon-button="mat-icon-button" (click)="navigateBack()">
+            <mat-icon inline="true">arrow_back_ios</mat-icon>
+        </button>
+       {{ title }}
+    </div>
+
+    <!-- User Header -->
+    <div *ngIf="currentAlmaUser" class="user-header" fxLayout="row">
+        <span class="user-header-user">
+            <mat-icon size="20">account_circle</mat-icon>
+            <div class="user-header-text">
+                {{currentAlmaUser.fullName}}
+            </div>
+            <a href="https://slskey-test.swisscovery.network/users/{{currentAlmaUser.primaryId}}" target="_blank">
+                <mat-icon class="external-link-icon">open_in_new</mat-icon>
+            </a>
+        </span>
+    </div>
+</div>
