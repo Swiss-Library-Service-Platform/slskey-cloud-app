@@ -155,7 +155,7 @@ export class SlskeyAPIService {
     });
   }
 
-  async activateCurrentSlskeyUserForCurrentSlskeyGroup(remark: String): Promise<boolean> {
+  async activateCurrentSlskeyUserForCurrentSlskeyGroup(remark: String): Promise<[boolean,string]> {
     const payload = {
       primary_id: this.selectedUser.primaryId,
       slskey_code: this.selectedSlskeyGroup.value,
@@ -164,11 +164,10 @@ export class SlskeyAPIService {
     return new Promise(resolve => {
       this.http.post(this.baseUrl + '/user/' + this.selectedUser.primaryId + '/activate', payload, this.httpOptions).subscribe(
         (data: any) => {
-          resolve(true);
+          resolve([true, data]);
         },
         error => {
-          console.log(error);
-          resolve(false);
+          resolve([false, error.error]);
         },
       );
     });

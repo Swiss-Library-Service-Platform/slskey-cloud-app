@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AlmaUser } from '../../model/almauser.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigationheader',
@@ -11,9 +12,11 @@ export class NavigationheaderComponent implements OnInit {
   @Input() title: string;
   @Input() currentAlmaUser: AlmaUser;
   @Input() showBackButton: boolean;
+  @Input() onBackButtonClicked: () => void;
 
 
   constructor(
+    private router: Router
 
   ) { }
 
@@ -22,7 +25,9 @@ export class NavigationheaderComponent implements OnInit {
   }
 
   navigateBack(): void {
-    window.history.back();
+    if (this.onBackButtonClicked) {
+      this.onBackButtonClicked();
+    }
   }
 
 }

@@ -1,5 +1,7 @@
 <!-- Navigation header -->
-<app-navigationheader [title]="'ActivationPreview.Title' | translate" [currentAlmaUser]="currentAlmaUser" [showBackButton]="true"></app-navigationheader>
+<app-navigationheader [title]="'ActivationPreview.Title' | translate" [currentAlmaUser]="currentAlmaUser"
+    [showBackButton]="true" [onBackButtonClicked]="onBackButtonClicked">
+</app-navigationheader>
 
 <!-- Navigation Preview Header-->
 <div class="activation-preview-header-text">
@@ -7,10 +9,11 @@
 </div>
 
 <!-- Show each current slskey grouo -->
-<div class="slskey-group" *ngFor="let group of currentSlskeyGroups" [ngClass]="{'slskey-group-blocked': group.activation?.blocked}">
-    <div (click)="group.activation?.blocked ? null : selectSlskeyGroup(group.value)" class="slskey-group-header">
+<div (click)="group.activation?.blocked || group.isWorkFlowWebhook ? null : selectSlskeyGroup(group.value)"  class="slskey-group" *ngFor="let group of currentSlskeyGroups" [ngClass]="{'slskey-group-blocked': group.activation?.blocked, 'slskey-group-webhook': group.isWorkFlowWebhook}">
+    <div class="slskey-group-header">
         <div class="slskey-group-header-text">
-            <mat-icon size="20">group</mat-icon>
+            <mat-icon *ngIf="group.isWorkFlowWebhook" size="20">motion_photos_auto</mat-icon>
+            <span *ngIf="!group.isWorkFlowWebhook" class="material-symbols-outlined">web_traffic</span>
             {{group.name}}
         </div>
         <div *ngIf="group.activation != null">

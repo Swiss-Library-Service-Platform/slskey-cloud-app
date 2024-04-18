@@ -51,4 +51,8 @@ export class ActivationpreviewComponent implements OnInit {
     this.router.navigate(['activationinput']);
   }
 
+  onBackButtonClicked(): void {
+    this.router.navigate(['root', 'false']);
+  }
+
 }
