@@ -7,13 +7,15 @@
  */
 export class AlmaUser {
 
-    primaryId: String;
-    fullName: String;
+    primary_id: String;
+    full_name: String;
+    data: any;
 
     constructor(data: any = {}) {
         if (data) {
-            this.primaryId = data.primary_id;
-            this.fullName = data.full_name;
+            this.primary_id = data.primary_id;
+            this.full_name = data.full_name;
+            this.data = data;
         }
     }
 

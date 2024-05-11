@@ -3,11 +3,11 @@
     [showBackButton]="true" [onBackButtonClicked]="onBackButtonClicked">
 </app-navigationheader>
 
-<!-- Navigation Preview Header-->
+<!-- Navigation Preview Header
 <div class="activation-preview-header-text">
     {{ 'ActivationPreview.SlskeyGroups' | translate }}:
 </div>
-
+-->
 <!-- Show each current slskey grouo -->
 <div (click)="group.activation?.blocked || group.isWorkFlowWebhook ? null : selectSlskeyGroup(group.value)"  class="slskey-group" *ngFor="let group of currentSlskeyGroups" [ngClass]="{'slskey-group-blocked': group.activation?.blocked, 'slskey-group-webhook': group.isWorkFlowWebhook}">
     <div class="slskey-group-header">

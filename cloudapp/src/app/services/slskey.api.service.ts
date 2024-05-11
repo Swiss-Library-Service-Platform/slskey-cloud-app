@@ -27,7 +27,7 @@ export class SlskeyAPIService {
   private readonly _selectedSlskeyGroupObject = new BehaviorSubject<SlskeyGroup>(new SlskeyGroup());
   
   private initData: Object
-  private baseUrl: string = 'https://slskey-test.swisscovery.network/api/v1/cloudapp';
+  private baseUrl: string = 'https://slskey2.swisscovery.network/api/v1/cloudapp';
   httpOptions: {};
 
   constructor(
@@ -141,7 +141,7 @@ export class SlskeyAPIService {
 
   async getAvailableSlskeyGroupsForSelectedUser(): Promise<boolean> {
     return new Promise(resolve => {
-      this.http.get(this.baseUrl + '/user/' + this.selectedUser.primaryId + '/activate', this.httpOptions).subscribe(
+      this.http.get(this.baseUrl + '/user/' + this.selectedUser.primary_id + '/activate', this.httpOptions).subscribe(
         (data: any) => {
           this.slskeyGroups = data.map((group: any) => new SlskeyGroup(group));
           this._setObservableSlskeyGroupsObject(this.slskeyGroups);
@@ -157,17 +157,20 @@ export class SlskeyAPIService {
 
   async activateCurrentSlskeyUserForCurrentSlskeyGroup(remark: String): Promise<[boolean,string]> {
     const payload = {
-      primary_id: this.selectedUser.primaryId,
+      primary_id: this.selectedUser.primary_id,
       slskey_code: this.selectedSlskeyGroup.value,
-      remark: remark
+      remark: remark,
+      alma_user:this.selectedUser.data
     };
     return new Promise(resolve => {
-      this.http.post(this.baseUrl + '/user/' + this.selectedUser.primaryId + '/activate', payload, this.httpOptions).subscribe(
+      this.http.post(this.baseUrl + '/user/' + this.selectedUser.primary_id + '/activate', payload, this.httpOptions).subscribe(
         (data: any) => {
           resolve([true, data]);
         },
         error => {
-          resolve([false, error.error]);
+          // error message either
+          let errorMsg = error.error.message || error.error
+          resolve([false, errorMsg]);
         },
       );
     });
