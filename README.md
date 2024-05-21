@@ -1,4 +1,4 @@
-# SLSKey SLSP Cloud App
+# SLSKey - Alma Cloud App
 <img src=./preview/logo_text.png alt="drawing" width="400"/>
 
 ## Overview
@@ -6,8 +6,8 @@
 This repository contains the [Alma Cloud App](https://developers.exlibrisgroup.com/cloudapps/) for the SLSKey service provided by [SLSP](https://slsp.ch/).
 
 Currently this app supports to:
-- check the SLSKey status of a selected user
-- activate a selected user for SLSKey.
+- check the SLSKey status of a selected user ✓
+- activate a selected user for a SLSKey group ✓
 
 For disabling, blocking users or see the history of users, please use the [SLSKey User Management Interface](https://slskey2.swisscovery.network/).
 
@@ -27,7 +27,7 @@ Start Screen of the app:
 
 <img src=./preview/start.png alt="drawing" width="300"/>
 
-Navigate to a Alma page with user entities. 
+Navigate to a Alma page with user entities. <br>
 This can either be a user list with several entities or a user detail page. 
 
 <img src=./preview/userfound.png alt="drawing" width="300"/>
@@ -36,10 +36,11 @@ Select the user you want to active for SLSKey.
 
 <img src=./preview/user.png alt="drawing" width="300"/>
 
-You can see the current status of the user for the SLSKey service. If you institution has multiple SLSKey groups, you see the status for each group.
+You can see the current status of the user for the SLSKey service. <br>
+If you institution has multiple SLSKey groups, you see the status for each group.
 
-To activate the user for SLSKey, click on the the group you want to activate the user.
-Finally you can optionally enter a remark and click on "Activate".
+To activate the user for SLSKey, click on the group you want to activate the user for.<br>
+Finally, you can (optionally) enter a comment and click "Activate".
 
 <img src=./preview/beforeactivate.png alt="drawing" width="300"/>
 
