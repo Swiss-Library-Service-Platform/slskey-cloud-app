@@ -35,9 +35,9 @@
 
     <!-- Entity Selection -->
     <ng-container *ngIf="(entities$ | async)?.length > 0">
-        <div *ngIf="!selectedEntity">
+        <div >
             <mat-radio-group aria-labelledby="entities-radio-group-label" class="entities-radio-group"
-                [(ngModel)]="selectedEntity" (change)="entitySelected($event)">
+                 (change)="entitySelected($event)">
                 <mat-radio-button *ngFor="let entity of entities$ | async" [value]="entity">
                     {{entity.description}}
                 </mat-radio-button>
