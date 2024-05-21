@@ -15,7 +15,7 @@
 <!-- Selected SLSKey Group Header -->
 <div class="selected-slskey-group-header">
     <mat-icon *ngIf="currentSelectedSlskeyGroup.isWorkFlowWebhook" size="20">motion_photos_auto</mat-icon>
-    <span *ngIf="!currentSelectedSlskeyGroup.isWorkFlowWebhook" class="material-symbols-outlined">web_traffic</span>
+    <mat-icon *ngIf="!currentSelectedSlskeyGroup.isWorkFlowWebhook" size="20">supervised_user_circle</mat-icon>
     {{currentSelectedSlskeyGroup.name}}
 </div>
 

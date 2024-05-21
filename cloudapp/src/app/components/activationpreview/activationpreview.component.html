@@ -13,7 +13,7 @@
     <div class="slskey-group-header">
         <div class="slskey-group-header-text">
             <mat-icon *ngIf="group.isWorkFlowWebhook" size="20">motion_photos_auto</mat-icon>
-            <span *ngIf="!group.isWorkFlowWebhook" class="material-symbols-outlined">web_traffic</span>
+            <mat-icon *ngIf="!group.isWorkFlowWebhook" size="20">supervised_user_circle</mat-icon>
             {{group.name}}
         </div>
         <div *ngIf="group.activation != null">

@@ -23,8 +23,17 @@
 
     },
     "Main": {
-        "Title": "Select User"
+        "AccessDenied1": "Access denied",
+        "AccessDenied2": "You are not allowed to access this cloud app.",
+        "AccessDenied3": "If you think this is an error, please contact SLSP via email at", 
+
+        "Title": "Select User",
+
+        "Welcome1" : "Welcome to the SLSKey Cloud App!",
+        "Welcome2" : "Steps to activate a user for SLSKey:",
+        "Welcome3" : "Search for the user you want to activate",
+        "Welcome4" : "Open this Cloud App",
+        "Welcome5" : "Select the user and continue with the activation",
+        "Welcome6" : "Search for the user you want to activate in the Alma UI."
     }
-
-
 }
