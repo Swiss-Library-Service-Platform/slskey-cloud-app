@@ -1,0 +1,87 @@
+
+.slskey-header {
+
+    border: 1px solid #343a40;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+
+
+    .nav-header {
+        background-color: #343a40;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        font-size: 18px;
+        justify-content: center;
+    
+        &.full-rounded {
+            border-radius: 5px;
+        }
+    
+        &.half-rounded {
+            border-radius: 5px 5px 0 0;
+        }
+    
+        .back-button {
+            position:absolute;
+            left: 1rem;
+            background: white;
+            color: black;
+            border-radius: 8px;
+        }
+    }
+    
+    
+    .user-header {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color:#4e4a9914;
+        border-radius: 0 0 5px 5px;
+
+        a {
+            line-height: 15px;
+        }
+        
+        .external-link-icon {
+            font-size: 15px;
+            height: 15px;
+            width: 15px;
+        }
+        
+        .user-header-user {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+    
+        .user-header-text {
+            vertical-align: middle;
+            font-weight: bold;
+        }
+
+        .user-header-link a {
+            flex-direction: row;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: center;
+        }
+    
+        .mat-icon {
+            vertical-align: middle;
+            color: var(--slsp-purple);
+        }
+    
+        span {
+            display: flex;
+            align-items: center;
+            
+        }
+    }
+}

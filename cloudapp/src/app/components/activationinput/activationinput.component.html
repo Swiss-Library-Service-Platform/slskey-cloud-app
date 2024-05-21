@@ -1,0 +1,38 @@
+<!-- Loading Spinner -->
+<div class="loading-shade" *ngIf="loading">
+    <mat-spinner diameter="50"></mat-spinner>
+</div>
+
+<!-- Navigation Header -->
+<app-navigationheader [title]="'ActivationInput.Title' | translate" [currentAlmaUser]="currentAlmaUser"
+    [showBackButton]="true" [onBackButtonClicked]="onBackButtonClicked">
+</app-navigationheader>
+
+<div class="activation-input-header-text">
+    {{ 'ActivationInput.Activate' | translate }}:
+</div>
+
+<!-- Selected SLSKey Group Header -->
+<div class="selected-slskey-group-header">
+    <mat-icon *ngIf="currentSelectedSlskeyGroup.isWorkFlowWebhook" size="20">motion_photos_auto</mat-icon>
+    <mat-icon *ngIf="!currentSelectedSlskeyGroup.isWorkFlowWebhook" size="20">supervised_user_circle</mat-icon>
+    {{currentSelectedSlskeyGroup.name}}
+</div>
+
+<!-- Remark Input -->
+<div class="remark-input">
+
+    <mat-form-field appearance="outline">
+        <mat-label>{{ 'ActivationInput.Remark' | translate }}</mat-label>
+        <input matInput="matInput" [(ngModel)]="inputRemark" />
+    </mat-form-field>
+
+</div>
+
+<!-- Activation Button -->
+<div class="activation-button">
+    <button mat-flat-button="mat-flat-button" color="primary" (click)="activateSlskeyUserForSlskeyGroup()">
+        <mat-icon size="15">key</mat-icon>
+        {{ 'ActivationInput.ActivateButton' | translate }}
+    </button>
+</div>

@@ -1,0 +1,39 @@
+{
+    "General": {
+        "BackToMenu": "Back",
+        "OpenInSlskey": "Open in SLSKey"
+    },
+    "ActivationInput": {
+        "Activate": "Activate User",
+        "ActivateButton": "Activate User",
+        "Remark": "Remark (optional):",
+        "Title": "Activate"
+    },
+    "ActivationPreview": {
+        "ActivationDate": "Activation",
+        "Active": "Activated",
+        "Blocked": "Blocked",
+        "ExpirationDate": "Expiration",
+        "ExpirationViaAlma": "via Alma",
+        "Inactive": "Inactive",
+        "NoStatus": "No Status",
+        "Remark": "Remark",
+        "SlskeyGroups": "SLSKey Groups",
+        "Title": "User Management"
+
+    },
+    "Main": {
+        "AccessDenied1": "Access denied",
+        "AccessDenied2": "You are not allowed to access this cloud app.",
+        "AccessDenied3": "If you think this is an error, please contact SLSP via email at", 
+
+        "Title": "Select User",
+
+        "Welcome1" : "Welcome to the SLSKey Cloud App!",
+        "Welcome2" : "Steps to activate a user for SLSKey:",
+        "Welcome3" : "Search for the user you want to activate",
+        "Welcome4" : "Open this Cloud App",
+        "Welcome5" : "Select the user and continue with the activation",
+        "Welcome6" : "Search for the user you want to activate in the Alma UI."
+    }
+}

@@ -7,13 +7,19 @@ import { MaterialModule, CloudAppTranslateModule, AlertModule } from '@exlibris/
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MainComponent } from './main/main.component';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';   // use this
+import { MainComponent } from './components/main/main.component';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { ActivationpreviewComponent } from './components/activationpreview/activationpreview.component';
+import { ActivationinputComponent } from './components/activationinput/activationinput.component';
+import { NavigationheaderComponent } from './components/navigationheader/navigationheader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    ActivationpreviewComponent,
+    ActivationinputComponent,
+    NavigationheaderComponent,
   ],
   imports: [
     MaterialModule,
