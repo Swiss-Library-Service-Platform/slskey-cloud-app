@@ -26,9 +26,11 @@
         .back-button {
             position:absolute;
             left: 1rem;
-            background: white;
-            color: black;
+            // background: white;
+            color: white;
+            padding: 0.5rem;
             border-radius: 8px;
+            cursor: pointer;
         }
     }
     

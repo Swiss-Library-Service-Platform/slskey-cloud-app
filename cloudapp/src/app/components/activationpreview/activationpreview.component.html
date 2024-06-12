@@ -8,31 +8,37 @@
     {{ 'ActivationPreview.SlskeyGroups' | translate }}:
 </div>
 -->
-<!-- Show each current slskey grouo -->
-<div (click)="group.activation?.blocked || group.isWorkFlowWebhook ? null : selectSlskeyGroup(group.value)"  class="slskey-group" *ngFor="let group of currentSlskeyGroups" [ngClass]="{'slskey-group-blocked': group.activation?.blocked, 'slskey-group-webhook': group.isWorkFlowWebhook}">
+
+<!-- Show each current slskey group -->
+<div (click)="group.activation?.blocked || group.isWorkFlowWebhook ? null : selectSlskeyGroup(group.value)"
+    class="slskey-group" *ngFor="let group of currentSlskeyGroups"
+    [ngClass]="{'slskey-group-blocked': group.activation?.blocked, 'slskey-group-webhook': group.isWorkFlowWebhook}">
     <div class="slskey-group-header">
         <div class="slskey-group-header-text">
-            <mat-icon *ngIf="group.isWorkFlowWebhook" size="20">motion_photos_auto</mat-icon>
-            <mat-icon *ngIf="!group.isWorkFlowWebhook" size="20">supervised_user_circle</mat-icon>
+            <mat-icon *ngIf="group.isWorkFlowWebhook">motion_photos_auto</mat-icon>
+            <mat-icon *ngIf="!group.isWorkFlowWebhook">supervised_user_circle</mat-icon>
             {{group.name}}
         </div>
         <div *ngIf="group.activation != null">
             <div *ngIf="group.activation.blocked" class="slskey-group-status-chip blocked">
-                <mat-icon size="20">block</mat-icon>
+                <mat-icon >block</mat-icon>
                 {{ 'ActivationPreview.Blocked' | translate }}
             </div>
-            <div *ngIf="!group.activation.blocked && group.activation.activated" class="slskey-group-status-chip active">
-                <mat-icon size="20">check_circle</mat-icon>
-                {{ 'ActivationPreview.Active' | translate }}
+            <div *ngIf="!group.activation.blocked && group.activation.activated"
+                class="slskey-group-status-chip active">
+                <mat-icon >check_circle</mat-icon>
+                <span>{{ 'ActivationPreview.Active' | translate }} </span>
             </div>
-            <div *ngIf="!group.activation.blocked && !group.activation.activated" class="slskey-group-status-chip inactive">
-                <mat-icon size="20">cancel</mat-icon>
-                {{ 'ActivationPreview.Inactive' | translate }}
+            <div *ngIf="!group.activation.blocked && !group.activation.activated"
+                class="slskey-group-status-chip inactive">
+                <mat-icon >cancel</mat-icon>
+                <span>{{ 'ActivationPreview.Inactive' | translate }}</span>
+                
             </div>
         </div>
         <div *ngIf="group.activation == null">
             <div class="slskey-group-status-chip inactive">
-                <mat-icon size="20">cancel</mat-icon>
+                <mat-icon >cancel</mat-icon>
                 <span class="slskey-group-status-chip-text">
                     {{ 'ActivationPreview.NoStatus' | translate }}
                 </span>
@@ -42,22 +48,43 @@
 
     </div>
     <div class="slskey-group-body">
-        <div *ngIf="group.activation?.activated">
-            {{ 'ActivationPreview.ActivationDate' | translate }}:
-            {{group.activation?.activation_date | date: 'MM/dd/yyyy'}}
+        <!-- No Status -->
+        <div *ngIf="group.activation == null" style="font-style:italic;">
+            {{ 'ActivationPreview.NoStatusInfo' | translate }}
         </div>
+        <!-- Activation Date -->
         <div *ngIf="group.activation?.activated">
-            {{ 'ActivationPreview.ExpirationDate' | translate }}:
-            <span *ngIf="group.activation?.expiration_disabled">
-                {{ 'ActivationPreview.ExpirationDisabled' | translate }}
-            </span>
-            <span *ngIf="!group.activation?.expiration_disabled && group.activation?.expiration_date">
-                {{group.activation.expiration_date | date: 'MM/dd/yyyy'}}
-            </span>
-            <span *ngIf="!group.activation?.expiration_disabled && !group.activation?.expiration_date">
-                {{ 'ActivationPreview.ExpirationViaAlma' | translate }}
-            </span>
+            <div>
+                {{ 'ActivationPreview.ActivationDate' | translate }}:
+                {{group.activation?.activation_date | momentFormat}}
+            </div>
+            <div>
+                <!-- Expiration Date -->
+                {{ 'ActivationPreview.ExpirationDate' | translate }}:
+                <span *ngIf="group.activation?.expiration_disabled">
+                    {{ 'ActivationPreview.ExpirationDisabled' | translate }}
+                </span>
+                <span *ngIf="!group.activation?.expiration_disabled && group.activation?.expiration_date">
+                    {{group.activation.expiration_date | momentFormat }}
+                </span>
+                <span *ngIf="!group.activation?.expiration_disabled && !group.activation?.expiration_date">
+                    {{ 'ActivationPreview.ExpirationViaAlma' | translate }}
+                </span>
+            </div>
         </div>
+
+        <!-- Deactivation Date -->
+        <div *ngIf="group.activation != null && !group.activation?.blocked && !group.activation?.activated">
+            {{ 'ActivationPreview.DeactivationDate' | translate }}:
+            {{group.activation?.deactivation_date | momentFormat}}
+        </div>
+
+        <!-- Blocked Date -->
+        <div *ngIf="group.activation?.blocked">
+            {{ 'ActivationPreview.BlockedDate' | translate }}:
+            {{group.activation?.blocked_date | momentFormat }}
+        </div>
+
         <div *ngIf="group.activation?.remark">
             {{ 'ActivationPreview.Remark' | translate }}:
             <span>

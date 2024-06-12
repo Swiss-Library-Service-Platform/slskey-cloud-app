@@ -31,8 +31,13 @@
 
 <!-- Activation Button -->
 <div class="activation-button">
-    <button mat-flat-button="mat-flat-button" color="primary" (click)="activateSlskeyUserForSlskeyGroup()">
-        <mat-icon size="15">key</mat-icon>
-        {{ 'ActivationInput.ActivateButton' | translate }}
-    </button>
+    <button mat-flat-button class="slsp-purple-button" (click)="activateSlskeyUserForSlskeyGroup()">
+        <mat-icon inline=true>key</mat-icon>
+        <span *ngIf="currentSelectedSlskeyGroup.activation?.activated">
+            {{ 'ActivationInput.Extend' | translate }}
+        </span>
+        <span *ngIf="!currentSelectedSlskeyGroup.activation?.activated">
+            {{ 'ActivationInput.Activate' | translate }}
+        </span>
+      </button>
 </div>

@@ -10,6 +10,13 @@
     /* Add global styles here */
 }
 
+:root {
+    height: 100%;
+    --slsp-purple: rgba(78, 74, 153, 1); // or any global you wish to share with components 
+    --slsp-purple-light: #eeeef7;
+    --slsp-purple-transparent: rgba(78, 74, 153, 0.1);
+}
+
 cloudapp-alert {
     font-weight: bold;
     position: absolute;
@@ -59,4 +66,27 @@ cloudapp-alert {
     /*change color of underline when focused*/
     background-color: var(--slsp-purple) !important;
     ;
+}
+
+button.mat-button .mat-icon,
+a.mat-button .mat-icon,
+a.mat-raised-button .mat-icon,
+button.mat-flat-button .mat-icon,
+a.mat-stroked-button .mat-icon {
+    vertical-align: top;
+    font-size: 1.25em;
+    padding-right: 4px;
+}
+
+.mat-flat-button.slsp-purple-button {
+    background-color: var(--slsp-purple) !important;
+    color: white !important;
+
+    &:hover {
+        background-color: var(--slsp-purple) !important;
+    }
+
+    &.mat-button-disabled {
+        background-color: #ADA9BB !important;
+    }
 }

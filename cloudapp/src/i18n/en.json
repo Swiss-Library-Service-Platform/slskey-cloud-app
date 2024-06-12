@@ -5,22 +5,25 @@
     },
     "ActivationInput": {
         "Activate": "Activate User",
-        "ActivateButton": "Activate User",
+        "Extend": "Extend User",
         "Remark": "Remark (optional):",
         "Title": "Activate"
     },
     "ActivationPreview": {
         "ActivationDate": "Activation",
+        "Activate": "Activate",
         "Active": "Activated",
         "Blocked": "Blocked",
+        "DeactivationDate": "Deactivation",
+        "Extend": "Extend",
         "ExpirationDate": "Expiration",
         "ExpirationViaAlma": "via Alma",
         "Inactive": "Inactive",
         "NoStatus": "No Status",
+        "NoStatusInfo": "-- No Activation --",
         "Remark": "Remark",
         "SlskeyGroups": "SLSKey Groups",
         "Title": "User Management"
-
     },
     "Main": {
         "AccessDenied1": "Access denied",

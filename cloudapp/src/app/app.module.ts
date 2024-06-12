@@ -12,6 +12,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ActivationpreviewComponent } from './components/activationpreview/activationpreview.component';
 import { ActivationinputComponent } from './components/activationinput/activationinput.component';
 import { NavigationheaderComponent } from './components/navigationheader/navigationheader.component';
+import { MomentFormatPipe } from './moment.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NavigationheaderComponent } from './components/navigationheader/navigat
     ActivationpreviewComponent,
     ActivationinputComponent,
     NavigationheaderComponent,
+    MomentFormatPipe
   ],
   imports: [
     MaterialModule,
