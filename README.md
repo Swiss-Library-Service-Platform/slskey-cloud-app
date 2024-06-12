@@ -17,8 +17,6 @@ In order to use this app
 
 - your institution must be subscriber to the SLSP SLSKey service.
 
-- your Alma username has to be unlocked by SLSP
-
 Please [contact SLSP](https://slsp.ch/en/contact) if you have any questions.
 
 ## Daily Use
