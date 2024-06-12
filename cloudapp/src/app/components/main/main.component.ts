@@ -48,7 +48,7 @@ export class MainComponent implements OnInit, OnDestroy {
     let initData = await this.eventsService.getInitData().toPromise();
     await this._slskeyService.init(initData);
 
-    this.isUserAllowed = await this._slskeyService.isUserAllowed();
+    this.isUserAllowed = await this._slskeyService.authenticateAndCheckIfUserAllowed();
     this.isUserCheckDone = true;
 
     if (this.route.snapshot.params.isAutoSelect == 'true') {

@@ -108,9 +108,9 @@ export class SlskeyAPIService {
     this._selectedSlskeyGroupObject.next(slskeyGroup);
   }
 
-  async isUserAllowed(): Promise<boolean> {
+  async authenticateAndCheckIfUserAllowed(): Promise<boolean> {
     return new Promise(resolve => {
-      this.http.get(this.baseUrl + '/verify', this.httpOptions).subscribe(
+      this.http.get(this.baseUrl + '/authenticate', this.httpOptions).subscribe(
         (data: any) => {
           resolve(true);
         },
