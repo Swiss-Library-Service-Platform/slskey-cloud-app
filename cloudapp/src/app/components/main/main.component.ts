@@ -50,20 +50,20 @@ export class MainComponent implements OnInit, OnDestroy {
 
     this.isUserAllowed = await this._slskeyService.authenticateAndCheckIfUserAllowed();
     this.isUserCheckDone = true;
+    this.loading = false;
+
+    if (!this.isUserAllowed) {
+      return;
+    }
 
     if (this.route.snapshot.params.isAutoSelect == 'true') {
       this.entities$.subscribe(async (availableEntities) => {
         if (availableEntities.length == 1) {
           await this.setUser(availableEntities[0]);
         }
-        this.loading = false;
       });
-    } else {
-      this.loading = false;
     }
-
   }
-
 
   async entitySelected(event: MatRadioChange) {
     const value = event.value as Entity;
@@ -74,8 +74,10 @@ export class MainComponent implements OnInit, OnDestroy {
 
   async setUser(entity: Entity) {
     // Get PrimaryId from entity
-    const isUserFound = await this._slskeyService.getUserByPrimaryId(entity.link);
+    this.loading = true;
+    await this._slskeyService.getUserByPrimaryId(entity.link);
     const isGroupsFound = await this._slskeyService.getAvailableSlskeyGroupsForSelectedUser();
+    this.loading = false;
     if (isGroupsFound) {
       this.router.navigate(['activationpreview']);
     } else {
