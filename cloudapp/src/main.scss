@@ -1,4 +1,3 @@
-
 @import './app/components/main/main.component.theme';
 
 @mixin themed-styles($theme, $typography) {
@@ -24,15 +23,16 @@ cloudapp-alert {
     width: 100%;
     z-index: 99;
 }
+
 /* fallback */
 @font-face {
     font-family: 'Material Symbols Outlined';
     font-style: normal;
     font-weight: 400;
     src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v175/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOejbd5zrDAt.woff2) format('woff2');
-  }
-  
-  .material-symbols-outlined {
+}
+
+.material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
     font-weight: normal;
     font-style: normal;
@@ -46,7 +46,7 @@ cloudapp-alert {
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
-  }
+}
 
 .mat-form-field {
     width: 100%;
@@ -90,4 +90,12 @@ a.mat-stroked-button .mat-icon {
     &.mat-button-disabled {
         background-color: #ADA9BB !important;
     }
+}
+
+body.cloudapp-theme--blue .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: var(--slsp-purple);
+}
+
+body[class*=cloudapp-theme] .mat-checkbox-label {
+    margin-top: 1px;
 }
