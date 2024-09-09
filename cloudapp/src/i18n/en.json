@@ -8,7 +8,7 @@
         "Extend": "Extend User",
         "MemberEducationInstitution1": "Enrolled in an",
         "MemberEducationInstitution2": "Education Institution",
-        "MemberEducationInstitutionHint": "«Schüler:innen, Lehrer:innen, Mitarbeitende von Primarstufe, Sekundarstufe I, Sekundarstufe II (Berufliche Grundbildung, Gymnasien, Fachmittelschulen) ; Studierende, Dozierende, Mitarbeitende der Tertiärstufe (Höhere Fachschulen, Fachhochschulen, Universitäten)»",
+        "MemberEducationInstitutionHint": "Schüler:innen, Lehrer:innen, Mitarbeitende von Primarstufe, Sekundarstufe I, Sekundarstufe II (Berufliche Grundbildung, Gymnasien, Fachmittelschulen); \n\n Studierende, Dozierende, Mitarbeitende der Tertiärstufe (Höhere Fachschulen, Fachhochschulen, Universitäten)",
         "Remark": "Remark (optional):",
         "Title": "Activate"
     },
