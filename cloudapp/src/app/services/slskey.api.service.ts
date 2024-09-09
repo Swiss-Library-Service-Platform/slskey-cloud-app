@@ -25,7 +25,7 @@ export class SlskeyAPIService {
 
   private selectedSlskeyGroup: SlskeyGroup;
   private readonly _selectedSlskeyGroupObject = new BehaviorSubject<SlskeyGroup>(new SlskeyGroup());
-  
+
   private initData: Object
   private baseUrl: string = 'https://slskey2.swisscovery.network/api/v1/cloudapp';
   httpOptions: {};
@@ -125,17 +125,17 @@ export class SlskeyAPIService {
   async getUserByPrimaryId(link: string): Promise<boolean> {
     return new Promise(resolve => {
       this.restService.call<any>(link)
-      .subscribe(
-        result => {
-          this.selectedUser = new AlmaUser(result);
-          this._setObservableSelectedUserObject(this.selectedUser);
-          resolve(true);
-        },
-        error => {
-          this.alert.error('Failed to retrieve entity: ' + error.message);
-          resolve(false);
-        }
-      );
+        .subscribe(
+          result => {
+            this.selectedUser = new AlmaUser(result);
+            this._setObservableSelectedUserObject(this.selectedUser);
+            resolve(true);
+          },
+          error => {
+            this.alert.error('Failed to retrieve entity: ' + error.message);
+            resolve(false);
+          }
+        );
     });
   }
 
@@ -155,12 +155,13 @@ export class SlskeyAPIService {
     });
   }
 
-  async activateCurrentSlskeyUserForCurrentSlskeyGroup(remark: String): Promise<[boolean,string]> {
+  async activateCurrentSlskeyUserForCurrentSlskeyGroup(remark: String, isMemberEducationInstitution: boolean = false): Promise<[boolean, string]> {
     const payload = {
       primary_id: this.selectedUser.primary_id,
       slskey_code: this.selectedSlskeyGroup.value,
       remark: remark,
-      alma_user:this.selectedUser.data
+      member_of_education_institution: isMemberEducationInstitution,
+      alma_user: this.selectedUser.data
     };
     return new Promise(resolve => {
       this.http.post(this.baseUrl + '/user/' + this.selectedUser.primary_id + '/activate', payload, this.httpOptions).subscribe(

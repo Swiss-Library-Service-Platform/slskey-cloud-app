@@ -29,6 +29,18 @@
 
 </div>
 
+<div *ngIf="currentSelectedSlskeyGroup.show_member_educational_institution" class="education-input">
+    <mat-checkbox [checked]="inputIsEducationInstitution" (change)="changeIsEducationInstitution($event.checked)">
+        {{ 'ActivationInput.MemberEducationInstitution1' | translate }}
+        <div class="tooltip">
+            {{ 'ActivationInput.MemberEducationInstitution2' | translate }}
+            <span class="tooltiptext">
+                {{ 'ActivationInput.MemberEducationInstitutionHint' | translate }}
+            </span>
+          </div>
+    </mat-checkbox>
+</div>
+
 <!-- Activation Button -->
 <div class="activation-button">
     <button mat-flat-button class="slsp-purple-button" (click)="activateSlskeyUserForSlskeyGroup()">
@@ -39,5 +51,5 @@
         <span *ngIf="!currentSelectedSlskeyGroup.activation?.activated">
             {{ 'ActivationInput.Activate' | translate }}
         </span>
-      </button>
+    </button>
 </div>

@@ -19,6 +19,11 @@
     margin-top: 1rem;
 }
 
+.education-input {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
 .activation-button {
     margin-bottom: 1rem;
     width: 100%;
@@ -27,3 +32,29 @@
     justify-content: flex-end;
     font-weight: bold;
 }
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #f1f1f7;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    border: 1px solid #343a40;
+    left: 0;
+    top: 10px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

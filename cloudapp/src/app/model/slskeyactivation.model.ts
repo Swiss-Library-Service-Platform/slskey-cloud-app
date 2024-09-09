@@ -10,14 +10,15 @@ export class SlskeyActivation {
     slskey_user_id: Number;
     slskey_group_id: Number;
     // slskeyGroup: SlskeyGroup; TODO:
-    activated: Boolean;
+    activated: boolean;
     activation_date: Date;
     deactivation_date: Date;
     expiration_date: Date;
-    expiration_disabled: Boolean;
-    blocked: Boolean;
+    expiration_disabled: boolean;
+    blocked: boolean;
     blocked_date: Date;
     remark: String;
+    member_educational_institution: boolean;
 
     constructor(data: any = {}) {
         if(data) {
@@ -30,6 +31,7 @@ export class SlskeyActivation {
             this.blocked = data.blocked;
             this.blocked_date = data.blocked_date;
             this.remark = data.remark;
+            this.member_educational_institution = data.member_educational_institution
         }
     }
 

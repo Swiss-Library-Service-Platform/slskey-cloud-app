@@ -19,6 +19,7 @@ export class ActivationinputComponent implements OnInit {
   currentSelectedSlskeyGroup: SlskeyGroup;
   currentAlmaUser: AlmaUser;
   inputRemark: String;
+  inputIsEducationInstitution: boolean = false;
 
   constructor(
     private _slskeyService: SlskeyAPIService,
@@ -31,6 +32,7 @@ export class ActivationinputComponent implements OnInit {
       res => {
         this.currentSelectedSlskeyGroup = res;
         this.inputRemark = this.currentSelectedSlskeyGroup.activation?.remark || '';
+        this.inputIsEducationInstitution = this.currentSelectedSlskeyGroup.activation?.member_educational_institution || false;
       },
       err => {
         console.error(`An error occurred: ${err.message}`);
@@ -48,7 +50,7 @@ export class ActivationinputComponent implements OnInit {
 
   async activateSlskeyUserForSlskeyGroup(): Promise<void> {
     this.loading = true;
-    const [success, message] = await this._slskeyService.activateCurrentSlskeyUserForCurrentSlskeyGroup(this.inputRemark);
+    const [success, message] = await this._slskeyService.activateCurrentSlskeyUserForCurrentSlskeyGroup(this.inputRemark, this.inputIsEducationInstitution);
     const isGroupsFound = await this._slskeyService.getAvailableSlskeyGroupsForSelectedUser();
     this.loading = false;
 
@@ -67,6 +69,10 @@ export class ActivationinputComponent implements OnInit {
 
   async onBackButtonClicked(): Promise<void> {
     this.router.navigate(['activationpreview']);
+  }
+
+  changeIsEducationInstitution(isEducationInstitution: boolean): void {
+    this.inputIsEducationInstitution = isEducationInstitution;
   }
 
 }
