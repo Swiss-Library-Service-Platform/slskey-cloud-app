@@ -79,11 +79,12 @@ a.mat-stroked-button .mat-icon {
 }
 
 .mat-flat-button.slsp-purple-button {
-    background-color: var(--slsp-purple) !important;
-    color: white !important;
+    background-color: var(--slsp-purple-light) !important;
+    color: var(--slsp-purple) !important;
+    border: 1px solid var(--slsp-purple) !important;
 
     &:hover {
-        background-color: var(--slsp-purple) !important;
+        filter: brightness(95%);
     }
 
     &.mat-button-disabled {
