@@ -4,6 +4,19 @@
   margin: 15px 0;
 }
 
+::ng-deep .mat-radio-button.mat-radio-disabled .mat-radio-label .mat-radio-label-content {
+  font-style: italic;
+
+  .entity-no-edu-id {
+    font-style: normal;
+    margin-left: 10px;
+    background: rgb(244, 184, 184);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+  }
+}
+
 textarea {
   padding: 2px;
   border-width: 1px;
@@ -36,7 +49,8 @@ table {
   td {
     padding: 0 20px;
   }
-  td , th {
+  td,
+  th {
     white-space: nowrap;
     word-wrap: break-word;
   }

@@ -59,7 +59,9 @@ export class MainComponent implements OnInit, OnDestroy {
     if (this.route.snapshot.params.isAutoSelect == 'true') {
       this.entities$.subscribe(async (availableEntities) => {
         if (availableEntities.length == 1) {
-          await this.setUser(availableEntities[0]);
+          if (this.isEntityEduId(availableEntities[0])) {
+            await this.setUser(availableEntities[0]);
+          }
         }
       });
     }
@@ -83,6 +85,10 @@ export class MainComponent implements OnInit, OnDestroy {
     } else {
       // TODO: error handling
     }
+  }
+
+  isEntityEduId(entity: Entity): boolean {
+    return entity.link.endsWith('eduid.ch');
   }
 
   clear() {
