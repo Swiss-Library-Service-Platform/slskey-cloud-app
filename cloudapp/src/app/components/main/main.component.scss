@@ -55,3 +55,17 @@ table {
     word-wrap: break-word;
   }
 }
+
+.testing-environment {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: #fdfad6;
+  color: #333;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius:  5px;
+  margin-bottom: 10px;
+}

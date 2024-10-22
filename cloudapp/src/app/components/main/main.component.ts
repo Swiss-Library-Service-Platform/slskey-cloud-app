@@ -20,6 +20,7 @@ export class MainComponent implements OnInit, OnDestroy {
   isAutoSelect: string;
   isUserAllowed: boolean = false;
   isUserCheckDone: boolean = false;
+  isTestEnvironment: boolean = false;
 
   entities$: Observable<Entity[]> = this.eventsService.entities$
     .pipe(
@@ -47,6 +48,10 @@ export class MainComponent implements OnInit, OnDestroy {
     this.loading = true;
     let initData = await this.eventsService.getInitData().toPromise();
     await this._slskeyService.init(initData);
+    
+    this._slskeyService.getIsTestEnvironmentObject().subscribe(isTestEnvironment => {
+      this.isTestEnvironment = isTestEnvironment;
+    });
 
     this.isUserAllowed = await this._slskeyService.authenticateAndCheckIfUserAllowed();
     this.isUserCheckDone = true;

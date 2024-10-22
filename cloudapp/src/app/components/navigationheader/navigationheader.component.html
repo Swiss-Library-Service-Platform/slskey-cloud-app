@@ -13,7 +13,7 @@
             <div class="user-header-text">
                 {{currentAlmaUser.full_name}}
             </div>
-            <a href="https://slskey2.swisscovery.network/users/{{currentAlmaUser.primary_id}}" target="_blank">
+            <a (click)="navigateToExternalUser()" >
                 <mat-icon class="external-link-icon">open_in_new</mat-icon>
             </a>
         </span>

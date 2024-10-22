@@ -14,7 +14,8 @@
    "license": "https://github.com/Swiss-Library-Service-Platform/slskey-cloud-app/LICENCE",
    "contentSecurity": {
       "connectSrc": [
-         "https://slskey2.swisscovery.network/"
+         "https://slskey2.swisscovery.network/",
+         "https://slskey2-test.swisscovery.network/"
       ],
       "sandbox": {
          "popups": true
