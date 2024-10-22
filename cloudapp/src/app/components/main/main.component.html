@@ -1,5 +1,5 @@
 <!-- Info text about testing phase-->
-<ng-container>
+<ng-container *ngIf="isTestEnvironment">
     <div class="testing-environment">
         <b>Test Environment</b>
         <span>Changes do not affect production.</span>
