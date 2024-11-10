@@ -1,6 +1,6 @@
 <!-- Navigation header -->
 <app-navigationheader [title]="'ActivationPreview.Title' | translate" [currentAlmaUser]="currentAlmaUser"
-    [showBackButton]="true" [onBackButtonClicked]="onBackButtonClicked">
+    [showBackButton]="true" [onBackButtonClicked]="onBackButtonClicked.bind(this)">
 </app-navigationheader>
 
 <!-- Navigation Preview Header

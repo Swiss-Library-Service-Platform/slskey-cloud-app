@@ -5,7 +5,7 @@
 
 <!-- Navigation Header -->
 <app-navigationheader [title]="'ActivationInput.Title' | translate" [currentAlmaUser]="currentAlmaUser"
-    [showBackButton]="true" [onBackButtonClicked]="onBackButtonClicked">
+    [showBackButton]="true" [onBackButtonClicked]="onBackButtonClicked.bind(this)">
 </app-navigationheader>
 
 <div class="activation-input-header-text">

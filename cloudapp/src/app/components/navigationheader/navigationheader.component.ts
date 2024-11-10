@@ -18,7 +18,6 @@ export class NavigationheaderComponent implements OnInit {
 
   constructor(
     private slskeyService: SlskeyAPIService
-
   ) { }
 
   ngOnInit(): void {
