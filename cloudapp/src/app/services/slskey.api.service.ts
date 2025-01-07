@@ -31,7 +31,8 @@ export class SlskeyAPIService {
   private baseUrlTest: string = 'https://slskey2-test.swisscovery.network';
   private cloudAppPath: string = '/api/v1/cloudapp';
 
-  private testInstitutions: Array<string> = ['41SLSP_ABN'];
+  //private testInstitutions: Array<string> = ['41SLSP_ABN'];
+  private testInstitutions: Array<string> = [];
   private isTestEnvironment: boolean = false;
   private readonly _isTestEnvironmentObject = new BehaviorSubject<boolean>(false);
 
