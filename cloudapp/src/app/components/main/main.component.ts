@@ -93,7 +93,8 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   isEntityEduId(entity: Entity): boolean {
-    return entity.link.endsWith('eduid.ch');
+    const regex = /eduid(\.|\%2E)ch/;
+    return regex.test(entity.link);
   }
 
   clear() {
