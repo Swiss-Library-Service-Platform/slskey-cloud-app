@@ -18,15 +18,12 @@
     <span>
         {{ 'Main.AccessDenied3' | translate }}
         <a href="mailto:info@slsp.ch">
-            info@slsp.ch</a>.
+            info&#64;slsp.ch</a>.
     </span>
 </ng-container>
 
 <!-- User Allowed: Show Entities -->
 <ng-container *ngIf="isUserCheckDone && isUserAllowed">
-
-    <!-- Navigation header -->
-    <app-navigationheader [title]="'Main.Title' | translate" [showBackButton]="false"></app-navigationheader>
 
     <!-- No Entities visible in Alma UI -->
     <ng-container *ngIf="(entities$ | async)?.length == 0">
@@ -37,21 +34,39 @@
             <li> {{ 'Main.Welcome4' | translate }}</li>
             <li> {{ 'Main.Welcome5' | translate }}</li>
         </ul>
-        <div class="highlight"> {{ 'Main.Welcome6' | translate }}</div>
     </ng-container>
 
     <!-- Entity Selection -->
     <ng-container *ngIf="(entities$ | async)?.length > 0">
-        <div >
-            <mat-radio-group aria-labelledby="entities-radio-group-label" class="entities-radio-group"
-                 (change)="entitySelected($event)">
-                <mat-radio-button *ngFor="let entity of entities$ | async" [value]="entity" [disabled]="!isEntityEduId(entity)">
-                    {{entity.description}}
-                    <span *ngIf="!isEntityEduId(entity)" class="entity-no-edu-id">
-                        {{ 'Main.NoEduId' | translate }}
+        <div class="select-entities">
+            <mat-action-list [attr.aria-label]="'Main.Title' | translate" class="entities-action-list">
+                <button mat-list-item
+                        *ngFor="let entity of entities$ | async; trackBy: trackEntity"
+                        class="entity-action"
+                        type="button"
+                        [disabled]="!isEntityEduId(entity)"
+                        (click)="entitySelected(entity)">
+                    <span class="entity-row">
+                        <span class="entity-content">
+                            <span class="entity-name">{{ entity.description }}</span>
+                            <span class="entity-meta">
+                                <span *ngIf="entityPrimaryIdentifier(entity) as primaryIdentifier"
+                                      class="entity-primary-identifier">
+                                    {{ primaryIdentifier }}
+                                </span>
+                                <span *ngIf="!isEntityEduId(entity)" class="entity-no-edu-id">
+                                    {{ 'Main.NoEduId' | translate }}
+                                </span>
+                            </span>
+                        </span>
+                        <mat-icon *ngIf="isEntityEduId(entity)"
+                                  class="entity-navigation-icon"
+                                  aria-hidden="true">
+                            chevron_right
+                        </mat-icon>
                     </span>
-                </mat-radio-button>
-            </mat-radio-group>
+                </button>
+            </mat-action-list>
         </div>
     </ng-container>
 </ng-container>

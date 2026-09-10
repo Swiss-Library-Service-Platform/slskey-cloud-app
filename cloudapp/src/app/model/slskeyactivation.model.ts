@@ -28,6 +28,7 @@ export class SlskeyActivation {
             this.activation_date = data.activation_date;
             this.deactivation_date = data.deactivation_date;
             this.expiration_date = data.expiration_date;
+            this.expiration_disabled = data.expiration_disabled;
             this.blocked = data.blocked;
             this.blocked_date = data.blocked_date;
             this.remark = data.remark;

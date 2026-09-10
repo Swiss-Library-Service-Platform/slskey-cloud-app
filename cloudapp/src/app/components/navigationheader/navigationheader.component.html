@@ -7,13 +7,15 @@
     </div>
 
     <!-- User Header -->
-    <div *ngIf="currentAlmaUser" class="user-header" fxLayout="row">
+    <div *ngIf="currentAlmaUser?.primary_id" class="user-header" fxLayout="row">
         <span class="user-header-user">
             <mat-icon size="20">account_circle</mat-icon>
             <div class="user-header-text">
                 {{currentAlmaUser.full_name}}
             </div>
-            <a (click)="navigateToExternalUser()" >
+            <a [href]="getExternalUserUrl()" target="_blank" rel="noopener"
+                [attr.aria-label]="'General.OpenInSlskey' | translate"
+                [title]="'General.OpenInSlskey' | translate">
                 <mat-icon class="external-link-icon">open_in_new</mat-icon>
             </a>
         </span>

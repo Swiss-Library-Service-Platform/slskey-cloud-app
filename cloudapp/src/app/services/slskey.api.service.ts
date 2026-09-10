@@ -31,7 +31,7 @@ export class SlskeyAPIService {
   private baseUrlTest: string = 'https://slskey2-test.swisscovery.network';
   private cloudAppPath: string = '/api/v1/cloudapp';
 
-  //private testInstitutions: Array<string> = ['41SLSP_ABN'];
+  //private testInstitutions: Array<string> = ['41SLSP_UBS'];
   private testInstitutions: Array<string> = [];
   private isTestEnvironment: boolean = false;
   private readonly _isTestEnvironmentObject = new BehaviorSubject<boolean>(false);
@@ -191,8 +191,9 @@ export class SlskeyAPIService {
           resolve([true, data]);
         },
         error => {
-          // error message either
-          let errorMsg = error.error.message || error.error
+          const errorMsg = error?.error?.message ||
+            (typeof error?.error === 'string' ? error.error : error?.message) ||
+            'Activation failed';
           resolve([false, errorMsg]);
         },
       );

@@ -17,7 +17,7 @@ In order to use this app
 
 - your institution must be subscriber to the SLSP SLSKey service.
 
-Please [contact SLSP](https://slsp.ch/en/contact) if you have any questions.
+Please contact [SLSP Support](https://slsp.atlassian.net/servicedesk/customer/portal/1) if you have any questions.
 
 ## Daily Use
 
@@ -48,10 +48,10 @@ After activation you see the updated status of the user.
 
 ## Missing permissions
 
-If you receive an error message "Access denied" when trying to use the app, please [contact SLSP](https://slsp.ch/en/contact) to unlock your user for the service.
+If you receive an error message "Access denied" when trying to use the app, please contact [SLSP Support](https://slsp.atlassian.net/servicedesk/customer/portal/1) to unlock your user for the service.
 
 ## Issues and defects
-Please use the GitHub "Issues" of this repository to report any defects. We will have a look into it as soon as possible.
+For questions or to report an issue, please contact [SLSP Support](https://slsp.atlassian.net/servicedesk/customer/portal/1).
 
 ## Licence 
 

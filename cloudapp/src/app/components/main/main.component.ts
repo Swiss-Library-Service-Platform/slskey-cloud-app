@@ -5,7 +5,6 @@ import {
   CloudAppEventsService, Request, HttpMethod,
   Entity, PageInfo, EntityType
 } from '@exlibris/exl-cloudapp-angular-lib';
-import { MatRadioChange } from '@angular/material/radio';
 import { SlskeyAPIService } from '../../services/slskey.api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -22,13 +21,7 @@ export class MainComponent implements OnInit, OnDestroy {
   isUserCheckDone: boolean = false;
   isTestEnvironment: boolean = false;
 
-  entities$: Observable<Entity[]> = this.eventsService.entities$
-    .pipe(
-     tap(() => this.clear()),
-      map(entities => {
-        return entities.filter(e => e.type == EntityType.USER);
-      }),
-    )
+  entities$: Observable<Entity[]>;
 
   constructor(
     private eventsService: CloudAppEventsService,
@@ -36,7 +29,15 @@ export class MainComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
 
-  ) { }
+  ) {
+    this.entities$ = this.eventsService.entities$
+      .pipe(
+        tap(() => this.clear()),
+        map(entities => {
+          return entities.filter(e => e.type == EntityType.USER);
+        }),
+      );
+  }
 
   ngOnDestroy(): void {
   }
@@ -72,29 +73,50 @@ export class MainComponent implements OnInit, OnDestroy {
     }
   }
 
-  async entitySelected(event: MatRadioChange) {
-    const value = event.value as Entity;
-    this.loading = true;
-    await this.setUser(value);
-    this.loading = false;
+  async entitySelected(entity: Entity) {
+    await this.setUser(entity);
   }
 
   async setUser(entity: Entity) {
     // Get PrimaryId from entity
     this.loading = true;
-    await this._slskeyService.getUserByPrimaryId(entity.link);
-    const isGroupsFound = await this._slskeyService.getAvailableSlskeyGroupsForSelectedUser();
-    this.loading = false;
-    if (isGroupsFound) {
-      this.router.navigate(['activationpreview']);
-    } else {
-      // TODO: error handling
+    try {
+      const isUserFound = await this._slskeyService.getUserByPrimaryId(entity.link);
+      if (!isUserFound) {
+        return;
+      }
+
+      const isGroupsFound = await this._slskeyService.getAvailableSlskeyGroupsForSelectedUser();
+      if (isGroupsFound) {
+        this.router.navigate(['activationpreview']);
+      } else {
+        // TODO: error handling
+      }
+    } finally {
+      this.loading = false;
     }
   }
 
   isEntityEduId(entity: Entity): boolean {
-    const regex = /eduid(\.|\%2E)ch/;
+    const regex = /eduid(\.|%2e)ch/i;
     return regex.test(entity.link);
+  }
+
+  entityPrimaryIdentifier(entity: Entity): string {
+    const match = /\/users\/([^/?#]+)/.exec(entity.link);
+    if (!match) {
+      return '';
+    }
+
+    try {
+      return decodeURIComponent(match[1]);
+    } catch {
+      return match[1];
+    }
+  }
+
+  trackEntity(_index: number, entity: Entity): string {
+    return `${entity.type}:${entity.id}:${entity.link}`;
   }
 
   clear() {
