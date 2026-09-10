@@ -22,13 +22,7 @@ export class MainComponent implements OnInit, OnDestroy {
   isUserCheckDone: boolean = false;
   isTestEnvironment: boolean = false;
 
-  entities$: Observable<Entity[]> = this.eventsService.entities$
-    .pipe(
-     tap(() => this.clear()),
-      map(entities => {
-        return entities.filter(e => e.type == EntityType.USER);
-      }),
-    )
+  entities$: Observable<Entity[]>;
 
   constructor(
     private eventsService: CloudAppEventsService,
@@ -36,7 +30,15 @@ export class MainComponent implements OnInit, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
 
-  ) { }
+  ) {
+    this.entities$ = this.eventsService.entities$
+      .pipe(
+        tap(() => this.clear()),
+        map(entities => {
+          return entities.filter(e => e.type == EntityType.USER);
+        }),
+      );
+  }
 
   ngOnDestroy(): void {
   }

@@ -7,6 +7,7 @@ on:
       [
         "package.json",
         "package-lock.json",
+        "tsconfig.override.json",
         "cloudapp/src/**",
         ".github/workflows/**",
       ]
@@ -17,17 +18,15 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Use Node.js 13.x
-        uses: actions/setup-node@v1
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 13.x
+          node-version: 22.x
 
-      # - name: Audit ('npm audit')
-      #   run: |
-      #     npm ci
-      #     npm audit --audit-level=critical
+      - name: Audit dependencies (fail on critical)
+        run: npm audit --audit-level=critical
 
       - name: Build CloudApp ('eca build')
         run: |
