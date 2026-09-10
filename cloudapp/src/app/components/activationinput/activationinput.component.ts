@@ -49,21 +49,27 @@ export class ActivationinputComponent implements OnInit {
   }
 
   async activateSlskeyUserForSlskeyGroup(): Promise<void> {
-    this.loading = true;
-    const [success, message] = await this._slskeyService.activateCurrentSlskeyUserForCurrentSlskeyGroup(this.inputRemark, this.inputIsEducationInstitution);
-    const isGroupsFound = await this._slskeyService.getAvailableSlskeyGroupsForSelectedUser();
-    this.loading = false;
+    if (this.loading) {
+      return;
+    }
 
-    if (isGroupsFound) {
-      this.router.navigate(['activationpreview']);
-    } else {
-      // TODO: error handling
-    }
-    if (success) {
+    this.loading = true;
+    try {
+      const [success, message] = await this._slskeyService.activateCurrentSlskeyUserForCurrentSlskeyGroup(this.inputRemark, this.inputIsEducationInstitution);
+      if (!success) {
+        this.alert.error(message, { autoClose: false });
+        return;
+      }
+
+      const isGroupsFound = await this._slskeyService.getAvailableSlskeyGroupsForSelectedUser();
+      if (isGroupsFound) {
+        this.router.navigate(['activationpreview']);
+      } else {
+        // TODO: error handling
+      }
       this.alert.success(message, { autoClose: false });
-    }
-    else {
-      this.alert.error(message, { autoClose: false });
+    } finally {
+      this.loading = false;
     }
   }
 

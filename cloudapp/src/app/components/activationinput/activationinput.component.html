@@ -43,7 +43,8 @@
 
 <!-- Activation Button -->
 <div class="activation-button">
-    <button mat-flat-button class="slsp-purple-button" (click)="activateSlskeyUserForSlskeyGroup()">
+    <button mat-flat-button class="slsp-purple-button" [disabled]="loading"
+        (click)="activateSlskeyUserForSlskeyGroup()">
         <mat-icon inline=true>key</mat-icon>
         <span *ngIf="currentSelectedSlskeyGroup.activation?.activated">
             {{ 'ActivationInput.Extend' | translate }}

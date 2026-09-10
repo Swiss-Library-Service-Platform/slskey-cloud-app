@@ -30,10 +30,9 @@ export class NavigationheaderComponent implements OnInit {
     }
   }
 
-  navigateToExternalUser(): void {
+  getExternalUserUrl(): string {
     const baseUrl = this.slskeyService.getBaseUrl();
-    const userUrl = baseUrl + '/users/' + this.currentAlmaUser.primary_id;
-    window.open(userUrl, '_blank');
+    return baseUrl + '/users/' + encodeURIComponent(String(this.currentAlmaUser.primary_id));
   }
 
 }

@@ -74,21 +74,26 @@ export class MainComponent implements OnInit, OnDestroy {
 
   async entitySelected(event: MatRadioChange) {
     const value = event.value as Entity;
-    this.loading = true;
     await this.setUser(value);
-    this.loading = false;
   }
 
   async setUser(entity: Entity) {
     // Get PrimaryId from entity
     this.loading = true;
-    await this._slskeyService.getUserByPrimaryId(entity.link);
-    const isGroupsFound = await this._slskeyService.getAvailableSlskeyGroupsForSelectedUser();
-    this.loading = false;
-    if (isGroupsFound) {
-      this.router.navigate(['activationpreview']);
-    } else {
-      // TODO: error handling
+    try {
+      const isUserFound = await this._slskeyService.getUserByPrimaryId(entity.link);
+      if (!isUserFound) {
+        return;
+      }
+
+      const isGroupsFound = await this._slskeyService.getAvailableSlskeyGroupsForSelectedUser();
+      if (isGroupsFound) {
+        this.router.navigate(['activationpreview']);
+      } else {
+        // TODO: error handling
+      }
+    } finally {
+      this.loading = false;
     }
   }
 
