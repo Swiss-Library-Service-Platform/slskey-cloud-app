@@ -1,8 +1,5 @@
-@import './app/components/main/main.component.theme';
-
 @mixin themed-styles($theme, $typography) {
     /* Include themed component mixins or theme dependent styles here */
-    @include main-component-theme($theme, $typography);
 }
 
 @mixin global-styles {
@@ -51,6 +48,10 @@ cloudapp-alert {
 
 mat-form-field {
     width: 100%;
+}
+
+.mat-mdc-form-field .mat-mdc-text-field-wrapper {
+    padding-inline: 0.75rem !important;
 }
 
 .mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
