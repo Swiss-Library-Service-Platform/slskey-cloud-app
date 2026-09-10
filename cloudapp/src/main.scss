@@ -17,11 +17,12 @@
 }
 
 cloudapp-alert {
-    display: block;
     font-weight: bold;
-    position: static !important;
-    width: 100%;
-    z-index: 99;
+    pointer-events: none;
+
+    .alert {
+        pointer-events: auto;
+    }
 }
 
 /* fallback */
