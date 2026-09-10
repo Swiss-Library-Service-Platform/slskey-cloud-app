@@ -1,20 +1,107 @@
-.entities-radio-group {
-  display: flex;
-  flex-direction: column;
-  margin: 15px 0;
+.select-entities {
+  padding-top: 1rem;
 }
 
-::ng-deep .mat-mdc-radio-button.mat-mdc-radio-disabled .mdc-label {
-  font-style: italic;
+.entities-action-list {
+  padding: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
 
-  .entity-no-edu-id {
-    font-style: normal;
-    margin-left: 10px;
-    background: rgb(244, 184, 184);
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 4px;
+.entity-action {
+  --mdc-list-list-item-one-line-container-height: 64px;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus-visible {
+    background-color: var(--slsp-purple-light);
+
+    .entity-navigation-icon {
+      opacity: 1;
+      color: var(--slsp-purple);
+      transform: translateX(2px);
+    }
   }
+
+  &:disabled {
+    --mdc-list-list-item-disabled-state-layer-opacity: 0;
+    --mdc-list-list-item-disabled-label-text-opacity: 1;
+
+    background-color: white;
+    cursor: default;
+
+    .entity-name,
+    .entity-primary-identifier {
+      color: rgba(0, 0, 0, 0.45);
+    }
+  }
+}
+
+.entity-row {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.entity-content {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1.25;
+}
+
+.entity-meta {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+}
+
+.entity-name,
+.entity-primary-identifier {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entity-name {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+}
+
+.entity-primary-identifier {
+  min-width: 0;
+  flex: 1 1 auto;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 0.875rem;
+}
+
+.entity-navigation-icon {
+  flex: 0 0 auto;
+  opacity: 0.55;
+  color: rgba(0, 0, 0, 0.55);
+  transition:
+    color 120ms ease,
+    opacity 120ms ease,
+    transform 120ms ease;
+}
+
+.entity-no-edu-id {
+  flex: 0 0 auto;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: #f9e3e1;
+  color: #8c2f27;
+  font-size: 0.75rem;
+  font-style: normal;
 }
 
 textarea {

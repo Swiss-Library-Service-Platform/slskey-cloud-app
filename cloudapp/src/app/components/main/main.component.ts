@@ -5,7 +5,6 @@ import {
   CloudAppEventsService, Request, HttpMethod,
   Entity, PageInfo, EntityType
 } from '@exlibris/exl-cloudapp-angular-lib';
-import { MatRadioChange } from '@angular/material/radio';
 import { SlskeyAPIService } from '../../services/slskey.api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -74,9 +73,8 @@ export class MainComponent implements OnInit, OnDestroy {
     }
   }
 
-  async entitySelected(event: MatRadioChange) {
-    const value = event.value as Entity;
-    await this.setUser(value);
+  async entitySelected(entity: Entity) {
+    await this.setUser(entity);
   }
 
   async setUser(entity: Entity) {
@@ -100,8 +98,25 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   isEntityEduId(entity: Entity): boolean {
-    const regex = /eduid(\.|\%2E)ch/;
+    const regex = /eduid(\.|%2e)ch/i;
     return regex.test(entity.link);
+  }
+
+  entityPrimaryIdentifier(entity: Entity): string {
+    const match = /\/users\/([^/?#]+)/.exec(entity.link);
+    if (!match) {
+      return '';
+    }
+
+    try {
+      return decodeURIComponent(match[1]);
+    } catch {
+      return match[1];
+    }
+  }
+
+  trackEntity(_index: number, entity: Entity): string {
+    return `${entity.type}:${entity.id}:${entity.link}`;
   }
 
   clear() {

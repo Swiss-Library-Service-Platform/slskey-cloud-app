@@ -17,9 +17,9 @@
 }
 
 cloudapp-alert {
+    display: block;
     font-weight: bold;
-    position: absolute;
-    top: 1rem;
+    position: static !important;
     width: 100%;
     z-index: 99;
 }
