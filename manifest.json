@@ -18,7 +18,8 @@
          "https://slskey2-test.swisscovery.network/"
       ],
       "sandbox": {
-         "popups": true
+         "popups": true,
+         "popups-to-escape-sandbox": true
       }
    }
 }
